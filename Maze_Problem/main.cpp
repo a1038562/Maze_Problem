@@ -2,7 +2,7 @@
 
 int main()
 {
-    Maze<int> maze;
-    maze.maze_file();
-    maze.maze_output();
+	Maze<int> maze;
+	maze.maze_file();
+	// maze.maze_output();
 }
