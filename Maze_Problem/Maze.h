@@ -2,44 +2,53 @@
 #define MAZE_H
 
 #include <iostream>
-#include <stack>
 #include <vector>
 #include <fstream>
 #include <string>
 #include <sstream>
 #include <algorithm>
+#define SIZE 100
 
 using namespace std;
 
-enum directions { N, E, S, W };
+typedef struct
+{
+	int i;
+	int j;
+}heading;
 
 template <typename T>
 struct items
 {
 	T i;
 	T j;
-	int dir;
+	T dir;
 };
+
+enum directions { N, E, S, W };
 
 template <typename T>
 class Maze
 {
-	int cur_i;
-	int cur_j;
-	int next_i;
-	int next_j;
-	vector <vector<T>> maze_map;
-	vector <vector<T>> maze_mark;
-	stack<items<T>> stack; // 순서대로 i(행), j(열), direction 저장
+	heading motion[4] = { {-1,0},{0,1},{1,0},{0,-1} };
+	vector <vector<int>> maze_map;
+	vector <vector<int>> maze_mark;
+	vector <vector<int>> maze_result;
+	items<T> stack[SIZE];
+	int size;
+
 public:
 	Maze();
 	void maze_file();
-	void maze_output();
+	void maze_output(vector < vector<int >> maze_info);
 	void maze_check(int i, int j);
 	void start();
-	void find_dir();
 	void path();
-	void move(T d);
+	void result();
+	void push(items<T> temp);
+	items<T> pop();
+	items<T> input(T i, T j, T d);
+	void save();
 };
 
 #endif
