@@ -23,7 +23,7 @@ void Maze<T>::maze_file() // 미로 csv를 읽는 함수
 		file >> buf; // 파일 첫 번째 행을 string에 저장
 		int size_j = (buf.length() + 1) / 2; // 열의 크기 계산
 		stringstream ss(buf);
-		maze_list.push_back(1); // 좌측의 벽을 만들기 위해 1을 1차원 vector에 추기
+		maze_list.push_back(1); // 좌측의 벽을 만들기 위해 1을 1차원 vector에 추가
 
 		while (getline(ss, mark, ',')) // ','이 나오기 전까지 문자 읽기 반복
 		{
