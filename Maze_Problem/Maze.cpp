@@ -31,7 +31,7 @@ void Maze<T>::maze_file() // 미로 csv를 읽는 함수
 
 			if (j % size_j == 0) // j(누적 열)가 size_j(열 크기)가 되는 경우 행 증가
 			{
-				maze_list.push_back(1); // 우측의 벽을 만들기 위해 1을 1차원 vector에 추기
+				maze_list.push_back(1); // 우측의 벽을 만들기 위해 1을 1차원 vector에 추가
 				maze_map.push_back(maze_list); // 2차원 vector에 하나의 행 정보를 담은 1차원 vector 저장
 				maze_list.clear(); // 1차원 vector 비우기
 			}
@@ -40,7 +40,7 @@ void Maze<T>::maze_file() // 미로 csv를 읽는 함수
 		}
 	}
 
-	for (int k = 0; k < maze_map[0].size(); k++) maze_wall.push_back(1); // 상단, 하단의 벽을 만들기 위해 1을 1차원 vector에 열 크기만큼 추기
+	for (int k = 0; k < maze_map[0].size(); k++) maze_wall.push_back(1); // 상단, 하단의 벽을 만들기 위해 1을 1차원 vector에 열 크기만큼 추가
 	maze_map.insert(maze_map.begin(), maze_wall); // 2차원 vector에 상단 벽 정보를 담은 1차원 vector 저장
 	maze_map.push_back(maze_wall); // 2차원 vector에 하단 벽 정보를 담은 1차원 vector 저장
 
